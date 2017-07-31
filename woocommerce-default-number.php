@@ -22,7 +22,7 @@ GNU General Public License for more details.
 */
 
 
-add_filter( 'woocommerce_quantity_input_args', 'event_tickets_default_number' );
+add_filter( 'woocommerce_quantity_input_args', 'woocommerce_default_number' );
 function woocommerce_default_number( $args ) {
 	$args['input_value'] = 1;
 	return $args;
