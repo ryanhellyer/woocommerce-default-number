@@ -4,7 +4,7 @@ Plugin Name: WooCommerce Set Default Number of Products
 Plugin URI: https://geek.hellyer.kiwi/plugins/
 Description: Changes the default number of products to purchase from 0 to 1
 Author: Ryan Hellyer
-Version: 1.0
+Version: 1.1
 Author URI: https://geek.hellyer.kiwi/
 
 Copyright 2017 Ryan Hellyer
@@ -24,6 +24,10 @@ GNU General Public License for more details.
 
 add_filter( 'woocommerce_quantity_input_args', 'woocommerce_default_number' );
 function woocommerce_default_number( $args ) {
-	$args['input_value'] = 1;
+
+	if ( 0 === $args['input_value'] ) {
+		$args['input_value'] = 1;
+	}
+
 	return $args;
 }
